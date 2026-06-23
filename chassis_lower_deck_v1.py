@@ -158,8 +158,8 @@ for mx, my in mc_positions:
     mc.translate(App.Vector(mx, my, deck2_z - rib_h - 1))
     deck2 = deck2.cut(mc)
 
-for hx, hy in [(W/2 - cytron_hx/2, cytron_center_y - cytron_hy/2), (W/2 + cytron_hx/2, cytron_center_y - cytron_hy/2),
-               (W/2 - cytron_hx/2, cytron_center_y + cytron_hy/2), (W/2 + cytron_hx/2, cytron_center_y + cytron_hy/2)]:
+for hx, hy in [(W/2 - cytron_hx/2 -2, cytron_center_y - cytron_hy/2), (W/2 + cytron_hx/2 -2, cytron_center_y - cytron_hy/2),
+               (W/2 - cytron_hx/2 -2, cytron_center_y + cytron_hy/2), (W/2 + cytron_hx/2 -2, cytron_center_y + cytron_hy/2)]:
     hole = Part.makeCylinder(m3_r, H + rib_h + 2)
     hole.translate(App.Vector(hx, hy, deck2_z - rib_h - 1))
     deck2 = deck2.cut(hole)
