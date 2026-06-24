@@ -53,8 +53,8 @@ sx_hx, sx_hy = 44.0, 66.0
 sx_cx, sx_cy = 155.0, 65.0
 
 # Modular Boom & RTK Parameters
-rtk_base_r = 32.0                              
-rtk_ir, rtk_or, rtk_h = 20.5, 23.5, 14.0       
+rtk_base_r = 28.0                              
+rtk_ir, rtk_or, rtk_h = 22.4, 25.4, 14.0       
 sma_hole_r = 7.0   
 
 boom_overlap = 30.0    # Boom arms insert 30mm under the chassis
@@ -380,6 +380,12 @@ gps_assembly = gps_assembly.cut(top_sma)
 top_cable_channel = Part.makeBox(5, 20, 6)
 top_cable_channel.translate(App.Vector(-2.5, 0, 83))
 gps_assembly = gps_assembly.cut(top_cable_channel)
+bottom_sma = Part.makeCylinder(sma_hole_r, 10)
+bottom_sma.translate(App.Vector(0, 0, 0))
+gps_assembly = gps_assembly.cut(bottom_sma)
+bottom_cable_channel = Part.makeBox(5, 20, 6)
+bottom_cable_channel.translate(App.Vector(-2.5, 0, 0))
+gps_assembly = gps_assembly.cut(bottom_cable_channel)
 gps_assembly.translate(App.Vector(-120, 80, 0))
 Part.show(gps_assembly)
 doc.ActiveObject.Label = "Mount_GPS_Mast"
